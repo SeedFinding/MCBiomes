@@ -57,13 +57,15 @@ def genlayer(seed, customized):
 
     # starting biome stack
     lvt81 = g11.GenLayerBiome(200, genlayerdeepocean, customized, 0)  # 19
-    genlayer6 = g4.GenLayerZoom(1000, lvt81,  0, 1, 1)  # 20 and 21
+    genlayer6 = g4.GenLayerZoom(1000, lvt81,  0, 1, 1)  # 20
+    genlayer6 = g4.GenLayerZoom(1001, genlayer6,  0, 1, 1)  #  21
     genlayerbiomeedge = g12.GenLayerBiomeEdge(1000, genlayer6, 1)  # 22
     # end Biome stack
 
     # starting river stack
     genlayerriverinit = g10.GenLayerRiverInit(100, genlayerdeepocean, 0)  # 23
-    lvt91 = g4.GenLayerZoom.magnify(1000, genlayerriverinit, 2, 0, 1, 0)  # 24 and 25
+    lvt91_b = g4.GenLayerZoom(1000, genlayerriverinit, 0, 1, 1)  # 25
+    lvt91 = g4.GenLayerZoom(1001, lvt91_b, 0, 1, 1)  # 20 and 21
     # merge point
     genlayerriver = deepcopy(lvt91)  # copy of 25 aka 36
 
@@ -92,7 +94,7 @@ def genlayer(seed, customized):
     genlayer3 = g19.GenLayerVoronoiZoom(10, genlayerrivermix, 1)
     # initializing
     genlayer3.initWorldSeed(seed)
-    last = genlayer6
+    last = genlayer3
     return last
 
 
@@ -113,8 +115,8 @@ def multiple():
     seed = 541515181818
     genlayerFinal = genlayer(seed, customized)
 
-    size = 32
-    r = Random(422757)
+    size = 16
+    r = Random(4227552225777)
     print("{", end="")
     for i in range(size):
         for j in range(size):
@@ -129,8 +131,8 @@ def one():
     customized = [0, "", "", [""]]
     seed = 541515181818
     genlayerFinal = genlayer(seed, customized)
-    x = 56
-    z = 17
+    x = 171
+    z = 497
     map = genlayerFinal.getInts(x, z, 1, 1)
     print("{{{0}, {1}, {2}}}, ".format(x, z, map[0]), end="\n")
 

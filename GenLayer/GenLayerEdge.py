@@ -59,6 +59,7 @@ class GenLayerEdge(Main):
 
     def getIntsSpecial(self, aX, aY, aW, aH):
         aint = self.parent[0][0].getInts(aX, aY, aW, aH)
+
         aint1 = np.empty(aW*aH,dtype=int)
         for i in range(aH):
             for j in range(aW):

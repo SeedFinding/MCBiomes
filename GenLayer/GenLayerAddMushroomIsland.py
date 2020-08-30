@@ -11,6 +11,7 @@ class GenLayerAddMushroomIsland(Main):
     def getInts(self, aX, aY, aW, aH):
         i, j, k, l = aX - 1, aY - 1, aW + 2, aH + 2
         aint = self.parent[0][0].getInts(i, j, k, l)
+
         aint1 = np.empty(aW * aH, dtype=int)
         for i1 in range(aH):
             for j1 in range(aW):

@@ -8,6 +8,7 @@ class GenLayerBiomeEdge(Main):
 
     def getInts(self, aX, aY, aW, aH):
         aint = self.parent[0][0].getInts(aX - 1, aY - 1, aW + 2, aH + 2)
+
         aint1 = np.empty(aW*aH,dtype=int)
         for i in range(aH):
             for j in range(aW):
